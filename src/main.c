@@ -11,6 +11,7 @@ int main(int argc, char **argv) {
 		exit(-1);
 	}	
 
+
 	int pid = fork();
 
 	if(pid < 0) {
@@ -20,7 +21,8 @@ int main(int argc, char **argv) {
 		char readfd[16];
 		sprintf(readfd, "%d", fd[1]);
 		printf("fd: %s\n", readfd);
-		execl("./test", "test", readfd, (char *)'\0');
+		//execl("./test", "test", readfd, (char *)'\0');
+		execl("./interface", "interface", readfd, (char *)0);
 	} else {
 		printf("parent process\n");
 		char buffer[256];
